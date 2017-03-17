@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+	  
+      <script type="text/javascript">
+	   Ext.tip.QuickTipManager.init();
+	   Ext.onReady(function() {
+	  Ext.define('Login', { 
+extend: 'Ext.window.Window', 
+alias: 'widget.login', 
+autoShow: true, 
+height: 200, 
+width: 340, 
+layout: {
+type: 'fit', 
+resizable:false
+
+},
+iconCls: 'key',
+title: "Login", 
+closeAction: 'hide', 
+closable: false 
+
+});
+//Ext.create('widget.login');
+var panel = Ext.create('widget.login', {
+    layout: 'hbox',
+    items: [
+{
+xtype: 'form', 
+frame: false, 
+bodyPadding: 15, 
+
+defaults: { 
+xtype: 'textfield', 
+anchor: '100%', 
+labelWidth: 100,
+},
+items: [
+{
+name: 'user',
+fieldLabel: "User",
+tooltip: 'User',
+allowBlank: false,
+vtype: 'alphanum',
+minLength: 3,
+msgTarget: 'under',
+id:'UserId'
+
+},
+{
+inputType: 'password', 
+name: 'password',
+fieldLabel: "Password",
+allowBlank: false,
+minLength: 6,
+maxLength: 15,
+msgTarget: 'under',
+id:'PasswordId',
+placeHolder: 'Enter your password'
+}
+]
+}
+],
+dockedItems: [
+{
+xtype: 'toolbar',
+dock: 'bottom',
+
+items: [
+{
+xtype: 'tbfill' 
+},
+{
+xtype: 'button', 
+itemId: 'cancel',
+iconCls: 'cancel',
+text: 'Cancel'
+},
+{
+xtype: 'button', 
+itemId: 'submit',
+formBind: true, 
+iconCls: 'Submit',
+text: "Submit"
+
+}
+]
+}
+]
+
+});
+
+
+
+
+});
+</script>
+<style type="text/css">
+.key {
+background-image:url('../icons/capture.png');
+}
+.cancel {
+background-image:url('../icons/cancel.png');
+}
+.Submit {
+background-image:url('../icons/Submit.png');
+}
+</style>
+   </head>
+   <body>
+    
+   </body>
+</html>
